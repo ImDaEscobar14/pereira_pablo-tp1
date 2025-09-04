@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b0jjapjbhuhbw"
+path="res://.godot/imported/Pouring waterliquid into a glass sound effect [HQ].mp3-5e79e2971c6b72383e6828d58af6cf40.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Pouring waterliquid into a glass sound effect [HQ].mp3"
+dest_files=["res://.godot/imported/Pouring waterliquid into a glass sound effect [HQ].mp3-5e79e2971c6b72383e6828d58af6cf40.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

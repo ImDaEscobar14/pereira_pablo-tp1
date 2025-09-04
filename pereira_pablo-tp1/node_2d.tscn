@@ -1,9 +1,118 @@
-[gd_scene format=3 uid="uid://c2owqr2ydaeul"]
+[gd_scene load_steps=14 format=3 uid="uid://c2owqr2ydaeul"]
+
+[ext_resource type="Script" uid="uid://8gjay4df2y8k" path="res://control.gd" id="1_epypp"]
+[ext_resource type="Script" uid="uid://dsltc2pea3mok" path="res://button_onclick.gd" id="1_wtcfe"]
+[ext_resource type="AudioStream" uid="uid://ryaw45qinohn" path="res://assets/audio/Roblox Drinking Sound Effect.mp3" id="3_0hol4"]
+[ext_resource type="Script" uid="uid://crj0wpwykc50" path="res://button_toggle.gd" id="4_q6r6c"]
+[ext_resource type="AudioStream" uid="uid://b0jjapjbhuhbw" path="res://assets/audio/Pouring waterliquid into a glass sound effect [HQ].mp3" id="5_kdubu"]
+[ext_resource type="Texture2D" uid="uid://blj06v6022qag" path="res://assets/images/sprite_no_fill_01.png" id="6_kdubu"]
+[ext_resource type="Script" uid="uid://c25emxobxjatn" path="res://animated_sprite_2d.gd" id="7_d21ai"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d21ai"]
+atlas = ExtResource("6_kdubu")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdubu"]
+atlas = ExtResource("6_kdubu")
+region = Rect2(1024, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rj586"]
+atlas = ExtResource("6_kdubu")
+region = Rect2(2048, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4d7sh"]
+atlas = ExtResource("6_kdubu")
+region = Rect2(3072, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir8iy"]
+atlas = ExtResource("6_kdubu")
+region = Rect2(4096, 0, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x0ka3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d21ai")
+}],
+"loop": false,
+"name": &"frame_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdubu")
+}],
+"loop": true,
+"name": &"frame_01",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rj586")
+}],
+"loop": true,
+"name": &"frame_02",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4d7sh")
+}],
+"loop": true,
+"name": &"frame_03",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir8iy")
+}],
+"loop": true,
+"name": &"frame_04",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Button" type="Button" parent="."]
-offset_left = 1151.0
-offset_top = 359.0
-offset_right = 1501.0
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 61.0
+offset_top = 89.0
+offset_right = 101.0
+offset_bottom = 129.0
+script = ExtResource("1_epypp")
+
+[node name="Button_onclick" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 639.0
+offset_top = 459.0
+offset_right = 744.0
+offset_bottom = 540.0
+script = ExtResource("1_wtcfe")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control/Button_onclick"]
+stream = ExtResource("3_0hol4")
+
+[node name="Button_toggle" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 239.0
+offset_top = 460.0
+offset_right = 351.0
 offset_bottom = 541.0
+toggle_mode = true
+script = ExtResource("4_q6r6c")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control/Button_toggle"]
+stream = ExtResource("5_kdubu")
+parameters/looping = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(575, 206)
+scale = Vector2(0.513672, 0.513672)
+sprite_frames = SubResource("SpriteFrames_x0ka3")
+animation = &"frame_0"
+script = ExtResource("7_d21ai")
+
+[connection signal="pressed" from="Control/Button_onclick" to="Control/Button_onclick" method="_on_pressed"]
+[connection signal="toggled" from="Control/Button_onclick" to="Control/Button_toggle" method="_on_button_onclick_toggled"]
+[connection signal="toggled" from="Control/Button_toggle" to="Control/Button_toggle" method="_on_toggled"]

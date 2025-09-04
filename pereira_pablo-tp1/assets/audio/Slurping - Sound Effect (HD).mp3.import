@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://pqwumlhif07y"
+path="res://.godot/imported/Slurping - Sound Effect (HD).mp3-c93e69539752a56d184485864551b24d.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Slurping - Sound Effect (HD).mp3"
+dest_files=["res://.godot/imported/Slurping - Sound Effect (HD).mp3-c93e69539752a56d184485864551b24d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
