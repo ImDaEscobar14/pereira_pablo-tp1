@@ -6,10 +6,10 @@ var frame = 0;
 const totalfr = 5;
 
 func _on_sip_pressed() -> void:
-	$Button_onclick/AudioStreamPlayer2D.play()
 	$Button_toggle/AudioStreamPlayer2D.stop()
 	anim.animation = "sip";
 	if frame > 0:
+		$Button_onclick/AudioStreamPlayer2D.play()
 		frame -= 1;
 	anim.frame = frame;
 

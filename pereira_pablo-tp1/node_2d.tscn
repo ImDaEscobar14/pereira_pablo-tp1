@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://c2owqr2ydaeul"]
+[gd_scene load_steps=26 format=3 uid="uid://c2owqr2ydaeul"]
 
 [ext_resource type="Script" uid="uid://8gjay4df2y8k" path="res://control.gd" id="1_epypp"]
+[ext_resource type="Texture2D" uid="uid://y2c8c3mn0lqw" path="res://assets/images/gaz_station_01.png" id="1_x0ka3"]
 [ext_resource type="AudioStream" uid="uid://ryaw45qinohn" path="res://assets/audio/Roblox Drinking Sound Effect.mp3" id="3_0hol4"]
 [ext_resource type="AudioStream" uid="uid://b0jjapjbhuhbw" path="res://assets/audio/Pouring waterliquid into a glass sound effect [HQ].mp3" id="5_kdubu"]
 [ext_resource type="Texture2D" uid="uid://bsgbg1utmpj2l" path="res://assets/images/sprite_4.png" id="6_0h7mo"]
@@ -111,6 +112,11 @@ animations = [{
 
 [node name="Node2D" type="Node2D"]
 
+[node name="GazStation01" type="Sprite2D" parent="."]
+position = Vector2(591.76, 337.5)
+scale = Vector2(1.17698, 1.17698)
+texture = ExtResource("1_x0ka3")
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -148,7 +154,7 @@ stream = ExtResource("5_kdubu")
 position = Vector2(562, 271)
 scale = Vector2(0.513672, 0.513672)
 sprite_frames = SubResource("SpriteFrames_x0ka3")
-animation = &"fill"
+animation = &"sip"
 script = ExtResource("7_d21ai")
 
 [connection signal="pressed" from="Control/Button_onclick" to="Control" method="_on_sip_pressed"]
